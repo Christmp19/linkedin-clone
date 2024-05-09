@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### If you see the window below then you are set to build LINKEDIN 2.0!
+
+![Template Screenshot](cover.png?raw=true "Template Screenshot")
+
 ## Getting Started
 
 First, run the development server:
