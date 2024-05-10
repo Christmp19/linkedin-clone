@@ -1,27 +1,33 @@
+import PostFeed from "@/components/PostFeed";
 import PostForm from "@/components/PostForm";
 import UserInformation from "@/components/UserInformation";
-import Image from "next/image";
+import Widget from "@/components/Widget";
+import { SignedIn } from "@clerk/nextjs";
+import connectDB from "../../mongodb/db";
+import { Post } from "../../mongodb/models/post";
 
-export default function Home() {
+export const revalidate = 0;
+
+export default async function Home() {
+  await connectDB();
+  const posts = await Post.getAllPosts();
+
   return (
     <div className="grid grid-cols-8 mt-5 sm:px-5">
       <section className="hidden md:inline md:col-span-2">
-        {/* User information */}
-        <UserInformation />
+        <UserInformation posts={posts} />
       </section>
 
-      <section className="col-span-full md:col-span-6 lg:col-span-4 lg:max-w-lg mx-auto w-full">
-    
-        {/* PostForm */}
-        <PostForm />
-
-      {/* PostFeed */}
+      <section className="col-span-full md:col-span-6 xl:col-span-4 xl:max-w-xl mx-auto w-full">
+        <SignedIn>
+          <PostForm />
+        </SignedIn>
+        <PostFeed posts={posts} />
       </section>
 
-      <section className="hidden lg:inline justify-center col-span-2">
-      {/* Widget */}
+      <section className="hidden xl:inline justify-center col-span-2">
+        <Widget />
       </section>
-      
     </div>
   );
 }

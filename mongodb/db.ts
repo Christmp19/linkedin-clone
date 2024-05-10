@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connectionString = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD }@cluster0.3ugbxx5.mongodb.net/`;
+const connectionString = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.jw7h1go.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 if (!connectionString) {
     throw new Error("Please provide a valid connection string");
