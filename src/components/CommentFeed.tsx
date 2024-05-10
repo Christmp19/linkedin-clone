@@ -2,8 +2,8 @@
 
 import { useUser } from "@clerk/nextjs";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import TimeAgo from "react-timeago";
 import { IPostDocument } from "../../mongodb/models/post";
+import ReactTimeago from "react-timeago";
 
 function CommentFeed({ post }: { post: IPostDocument }) {
     const { user } = useUser();
@@ -36,7 +36,7 @@ function CommentFeed({ post }: { post: IPostDocument }) {
                             </div>
 
                             <p className="text-xs text-gray-400">
-                                <TimeAgo date={new Date(comment.createdAt)} />
+                                <ReactTimeago date={new Date(comment.createdAt)} />
                             </p>
                         </div>
 
