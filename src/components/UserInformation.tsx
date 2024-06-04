@@ -14,7 +14,7 @@ async function UserInformation({ posts }: { posts: IPostDocument[] }) {
     const userPosts = posts?.filter((post) => post.user.userId === user?.id);
 
     //  The flatMap() method creates a new array by calling a function for each element in the array and then flattening the result into a new array. It is identical to a map() followed by a flat() of depth 1, but flatMap() is often quite useful, as merging both into one method is slightly more efficient. The result of this flatMap() is a new array that contains all comments made by the current user across all posts. It's "flat" because it's a single-level array, not an array of arrays.
-    const userComments = posts.flatMap(
+    const userComments = posts?.flatMap(
         (post) =>
             post?.comments?.filter((comment) => comment.user.userId === user?.id) ||
             []
